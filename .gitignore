@@ -1,0 +1,19 @@
+# Ignore video files
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.webm
+
+# Ignore audio files
+*.mp3
+
+# Ignore documents
+*.pdf
+
+# Ignore environment variables
+.env
+
+# Node/NPM
+node_modules/
+package-lock.json

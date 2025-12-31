@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Media Queries</title>
+    <style>
+        body {
+            background-color: rgb(195, 131, 255);
+            border: 5px solid rgb(255, 255, 255);
+            padding: 10px;
+        }
+
+        .boxes {
+            display: flex;
+        }
+
+        .box {
+            margin: 3px;
+            padding: 3px;
+            height: 150px;
+            width: 150px;
+            background-color: steelblue;
+        }
+
+        @media screen and (orientation: portrait) {
+            body {
+                border: 5px solid purple;
+                padding: 10px;
+            }
+        }
+
+        @media only screen and (max-width: 455px) {
+            body {
+                background-color: rgb(255, 84, 175);
+            }
+
+            .boxes {
+                flex-direction: column;
+            }
+
+            .box {
+                height: 400px;
+                width: 90vw;
+            }
+        }
+
+        /* @media not/only mediatype and (expressions) {
+        CSS-Code;
+        } */
+    </style>
+</head>
+
+<body>
+    <div>
+        I'm a div Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit obcaecati minus eum dolor, veniam
+        beatae, necessitatibus fuga omnis, accusantium distinctio minima doloremque nisi libero cum odio sunt labore.
+        Ipsum error laudantium, perferendis, magnam quo, ducimus tempora doloremque atque provident sapiente eveniet at
+        odit mollitia dignissimos tempore. Provident doloribus earum accusamus nam animi quibusdam necessitatibus
+        inventore illo. Atque iure animi voluptatibus maxime itaque nesciunt, quisquam est illo magnam vel quidem.
+        Recusandae alias deserunt dolor perspiciatis obcaecati adipisci non exercitationem!
+    </div>
+    <div class="boxes">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+</body>
+
+</html>

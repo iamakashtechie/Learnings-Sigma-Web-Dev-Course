@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Multi color website</title>
+    <style>
+        :root{
+            --primary-color: #ad5afacc;
+            --text-color: white;
+            --secondary-color: #c788ffcc;
+        }
+
+        /* :root {
+            --primary-color: #061872cc;
+            --text-color: white;
+            --secondary-color: #6ea5fccc;
+        } */
+
+        body {
+            background-color: var(--secondary-color);
+        }
+
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        ul li {
+            list-style: none;
+            display: inline;
+            padding: 23px;
+        }
+
+        ul li a{
+            color: var(--text-color);
+            text-decoration: none;
+        }
+
+        /* ul>li {
+            text-align: start;
+        } */
+        nav {
+            background-color: blueviolet;
+            font-weight: bolder;
+            color: white;
+            padding: 10px;
+            text-align: end;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Create a multicolor website which can change color using CSS Variables -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Multicolor site<a></a></li>
+                <li><a href="/">Home<a></a></li>
+                <li><a href="/">About<a></a></li>
+                <li><a href="/">Services<a></a></li>
+                <li><a href="/">Contact Us<a></a></li>
+            </ul>
+        </nav>
+    </header>
+</body>
+
+</html>

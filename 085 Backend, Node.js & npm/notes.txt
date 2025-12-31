@@ -1,0 +1,4 @@
+we will first initialize the project using the "npm init" command
+
+then a json file will be created "package.json"
+

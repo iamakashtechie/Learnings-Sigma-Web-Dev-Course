@@ -1,0 +1,27 @@
+HTML Entities
+
+    &lt; for <
+    &gt; for >
+    &amp; for &
+    &nbsp; for non-breaking space
+    &copy; for © Copyright
+
+pre tag --- all spaces newline are counted
+
+HTML Quotation 
+    <blockquote cite="source-url">
+        Quotation Text Here
+    </blockquote>
+
+    <q cite="source-url">Quotation Text Here</q>
+
+Obsolete HTML Tags (these are just for knowledge that these tags exist AS THESE FUNTIONS CAN BE DONE USING CSS which is a better option)
+
+    <font color="red" size="3" face="verdana">Some text</font>
+    <Center>Some text</Center>
+    <u></u>
+HTML Code tag
+    <code>
+        whatever code
+    </code>
+    ⭐Must use <code></code> with <pre></pre> to include spaces and newline

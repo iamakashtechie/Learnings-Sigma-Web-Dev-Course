@@ -1,0 +1,19 @@
+vscode-icons
+
+jellyfish theme
+
+live preview
+
+wakandaForever
+wakandaForever  ---> Alt + Shift + Down Arrow
+wakandaForever
+
+code -r <FOLDER_NAME>  ---> reopens vscode in that folder
+
+<textarea name="" id=""></textarea>
+    blank box for typing texts
+
+figma vs code extension
+
+🔥documents.designMode = "on"
+you can edit content of any website using this JS in browser console

@@ -1,0 +1,421 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Roboto, 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+@media (max-width: 500px) {
+    * {
+        font-size: 0.9rem;
+    }
+
+    /* .left .library .library-items .item {
+        flex-wrap: wrap;
+    } */
+}
+
+/* body {
+
+} */
+
+.container {
+    gap: 15px;
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.left {
+    width: 25vw;
+    /* padding: 10px 10px 10px 20px; */
+    margin: 10px 10px 10px 22px;
+    padding:     0px 0px 60px 0px;
+    gap: 10px;
+    /* min-height: 150vh; */
+    height: fit-content;
+}
+
+.left .home {
+    width: 100%;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; */
+    margin: 0px 0px;
+    padding: 14px;
+}
+
+.left .home ul {
+    width: 100%;
+}
+
+.left .home ul li {
+    list-style: none;
+    width: 100%;
+    gap: 7px;
+    /* display: flex;
+    justify-content: flex-start;
+    align-items: center; */
+    margin: 10px 0px;
+    font-size: 1.08rem;
+    font-weight: 600;
+}
+
+.left .home ul li > span:hover {
+    text-decoration: underline;
+}
+
+.left .home ul li img {
+    width: 26px;
+}
+
+.left .library {
+    width: 100%;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; */
+    margin: 0px 0px;
+    padding: 14px;
+    /* min-height: 61.5vh; */
+    height: 100%;
+    position: relative;
+}
+
+.left .library .heading {
+    gap: 7px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 0px;
+}
+
+.left .library .heading .section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+}
+
+.left .library .heading > .section > span:hover {
+    text-decoration: underline;
+}
+
+.left .library .heading .section > img {
+    width: 26px;
+}
+
+.left .library .heading .plus {
+    width: auto;
+    font-size: 23px;
+}
+
+.left .library .heading .plus:hover {
+    transform: scale(1.1);
+}
+
+.left .library .songList {
+    width: 100%;
+    min-height: 100px;
+    /* background-color: #434242; */
+    border-radius: 7px;
+    display : flex;
+    flex-direction: column;
+    justify-content : center;
+    align-items : center
+}
+
+.left .library .songList ul {
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.left .library .songList ul li {
+    width: 85%;
+    list-style-type: decimal;
+    font-size: 14px;
+    padding: 7px;
+    border-radius: 7px;
+}
+
+.left .library .songList ul li:hover {
+    background-color: #252525;
+}
+
+.left .library .library-items {
+    width: 100%;
+    display : flex;
+    flex-direction: column;
+    justify-content : center;
+    align-items : center
+    
+}
+
+.left .library .library-items .item {
+    display : flex;
+    justify-content : start;
+    align-items : center;
+    width: 100%;
+    /* margin: 10px; */
+    padding: 10px;
+}
+
+.left .library .library-items .item:hover {
+    background-color: #252525;
+}
+
+.left .library .library-items .item img {
+    height: 50px;
+    width: 50px; 
+    border-radius: 5px;
+    /* margin: 10px 5px 10px 20px; */
+    /* margin: 10px; */
+}
+
+.left .library .library-items .item .text {
+    width: 100%;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    .name {
+        color: var(--light-grey-font);
+        font-size: 16px;
+    }
+    
+    .type {
+        color: var(--white-font);
+        font-size: 11px;
+    }
+}
+
+.left .library .footer {
+    font-size: 10px;
+    color: grey;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 14px 0px;
+    /* margin: 15px; */
+    /* position: absolute;
+    bottom: 10px; */
+}
+
+.left .library .footer a {
+    color: grey;
+}
+
+.right {
+    width: 75vw;
+    /* min-height: 100vh; */
+    margin: 0px 10px 0px 0px;
+    /* position: relative; */
+    padding: 0px 0px 60px 0px;
+    height: fit-content;
+}
+
+.right > .header {
+    /* box-shadow: 0px 20px 20px 0px rgb(35, 35, 35); */
+    background-color: rgba(24, 24, 24, 0.99);
+    position: sticky;
+    width: 100%;
+    top: 0;
+    z-index: 1;
+}
+
+.right > .header, .right > .header > .nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.right  .header  .nav .arrow {
+    display: flex;
+    gap: 6px;
+}
+
+.right  .header  .nav .arrow > img {
+    height: 30px;
+    width: 30px;
+    border: 2px solid rgb(245, 244, 244);
+    border-radius: 40px;
+    background-color: rgb(245, 245, 245);
+    /* align-self: center; */
+}
+
+.right  .header  .nav .arrow > img:hover {
+    transform: scale(1.1);
+}
+
+.right  .header  .nav .buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.right  .header  .nav .buttons button {
+    padding: 6px 9px;
+    border-radius: 18px;
+    border: none;
+}
+
+.right  .header  .nav .buttons button:hover {
+    transform: scale(1.1);
+}
+
+.right .spotifyPlaylists {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #121212;
+    width: 100%;
+    /* min-height: 80vh; */
+    border-radius: 0px 0px 5px 5px;
+    /* padding: 14px; */
+    margin: 0px 10px 10px 10px;
+}
+
+.right .spotifyPlaylists > .heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    /* padding: 14px; */
+}
+
+.right .spotifyPlaylists > .heading > .title {
+    font-weight: bold;
+    font-size: large;
+    padding: 14px;
+}
+
+.right .spotifyPlaylists > .heading > .title:hover {
+    text-decoration: underline;
+}
+
+.right .spotifyPlaylists > .heading > .showAll {
+    font-size: small;
+    padding: 14px;
+}
+
+.right .spotifyPlaylists > .heading > .showAll:hover {
+    text-decoration: underline;
+}
+
+.right .spotifyPlaylists > .cardContainer {
+    display: flex;
+    width: 100%;
+    padding: 14px;
+    flex-wrap: wrap;
+    /* overflow-y: scroll; */
+    /* scroll-behavior: smooth; */
+    /* max-height: 68vh; */
+
+}
+
+.right .spotifyPlaylists > .cardContainer > .card {
+    width: 150px;
+    height: 190px;
+    /* overflow: hidden; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 14px;
+    gap: 5px;
+    border-radius: 5px;
+    position: relative;
+}
+
+.right .spotifyPlaylists > .cardContainer > .card:hover {
+    /* background-color: #1e1e1e; */
+    background-color: #252525;
+}
+
+.right .spotifyPlaylists > .cardContainer > .card > img {
+    width: 150px;
+    height: 150px;
+    object-fit: fill;
+    border: none;
+    border-radius: 5px;
+}
+
+.right .spotifyPlaylists > .cardContainer > .card > .play {
+    width: 28px;
+    height: 28px;
+    background-color: #00FF00;
+    border-radius: 50%;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: none;
+}
+
+.right .spotifyPlaylists > .cardContainer > .card:hover .play {
+    display: flex;
+    position: absolute;
+    bottom: 60px;
+    right: 21px;
+}
+
+.right .spotifyPlaylists > .cardContainer > .card > .title {
+    align-self: flex-start;
+    font-weight: 600;
+    font-size: 0.9rem;
+    width: 100%;
+}
+
+.right .spotifyPlaylists > .cardContainer > .card > .about {
+    align-self: flex-start;
+    font-size: 0.7rem;
+    width: 100%;
+}
+
+.playbar {
+    background-color: rgb(26, 26, 26);
+    width: 100%;
+    height: 60px;
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.playbar > .timeline {
+    /* outline: 1px solid white; */
+    /* margin: 0px; */
+    width: 90%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    
+}
+
+.playbar > .playButtons {
+    display: flex;
+    gap: 30px;
+}
+
+.playbar > .playButtons > img {
+    width: 25px;
+    height: 25px;
+}
+
+.playbar > .playButtons > img:hover {
+    transform: scale(1.1);
+}

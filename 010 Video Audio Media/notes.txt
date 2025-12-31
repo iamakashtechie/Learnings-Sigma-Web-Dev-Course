@@ -1,0 +1,19 @@
+video attr
+    controls
+    loop
+    muted
+    poster
+    autoplay
+
+audio attr
+    controls
+    loop
+    muted
+    autoplay
+    ⭐preload --- Specifies if and how the audio should be loaded when the page loads
+
+        1. none - (default) this value indicates the browser should not preload the audio file at all. The audio file will start downloading when the user indicates playback.
+
+        2. metadata - tells the browser to preload only the metadata of the audio file, such as duration and basic info about the audio.
+
+        3. this value instructs the browser to preload the entire audio file as much as possible without delaying the loading of other improtant page context. The browser will try to load the audio file in the background so that it's ready to play when the user decides to start it.

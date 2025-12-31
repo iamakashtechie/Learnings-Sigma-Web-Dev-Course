@@ -1,0 +1,16 @@
+{
+  "name": "backend-lecture-01",
+  "version": "1.0.0",
+  "description": "this is my first lecture of learning backend",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "backend",
+    "server"
+  ],
+  "author": "iamakashtechie",
+  "license": "ISC"
+}

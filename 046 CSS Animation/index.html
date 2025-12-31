@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Animation</title>
+    <style>
+        .container {
+            background-color: rgb(9, 106, 106);
+            height: 80vh;
+            width: 30vw;
+        }
+
+        .box {
+            height: 34px;
+            width: 34px;
+            /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+            /* animation: myanimation; */
+            /* animation-duration: 1.5s; */
+            /* animation-timing-function: cubic-bezier(0.42, 0, 0, 0.98); */
+            /* animation-iteration-count: 1; */
+            /* animation-iteration-count: infinite; */
+            /* animation-delay: 1s; */
+            /* animation-direction: reverse; */
+            /* direction ---- alternate ⭐*/
+            /* animation-play-state: paused; */
+            /* Will pause where it is */
+            /* animation-fill-mode: forwards; */
+
+            animation: myanimation 1.5s cubic-bezier(0.42, 0, 0, 0.98) 3 alternate-reverse forwards,
+                       another 3s ease-in-out 1s 1;
+        }
+
+        @keyframes myanimation {
+            from {
+                background-color: red;
+            }
+
+            to {
+                background-color: yellow;
+                transform: translateX(100px);
+            }
+        }
+
+        @keyframes another {
+            0% {
+                transform: rotate(100deg)
+            }
+
+            20% {
+                transform: rotate(200deg)
+            }
+
+            50% {
+                transform: rotate(220deg)
+            }
+
+            80% {
+                transform: rotate(300deg)
+            }
+
+            100% {
+                transform: rotate(310deg)
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">
+            Box
+        </div>
+    </div>
+</body>
+
+</html>

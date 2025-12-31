@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design this layout</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        body {
+            background-color: #c788ffcc;
+        }
+
+        ul li {
+            list-style: none;
+            display: inline-flex;
+            padding: 10px;
+            width: device-width;
+        }
+
+        ul li a {
+            color: var(--text-color);
+            text-decoration: none;
+        }
+
+        header {
+            position: sticky;
+            top: 0px;
+            background-color: blueviolet;
+            font-weight: bolder;
+            color: white;
+            padding: 12px;
+            text-align: end;
+            display: block;
+        }
+
+        @media only screen and (max-width: 455px) {
+            .box {
+                /* display: block; */
+                height: 280px;
+                width: 272px;
+                padding: 20px;
+                border: 2px solid rgb(255, 0, 0);
+                background-color: aliceblue;
+            }
+        }
+
+        .container {
+            /* align-items: center; */
+            display: inline-flex;
+            padding: 40px;
+            height: 300px;
+            width: 100vw;
+            border: 2px solid black;
+        }
+
+        .box {
+            display: inline-flex;
+            height: 280px;
+            width: 272px;
+            padding: 10px;
+            margin: auto;
+            border: 2px solid black;
+        }
+
+        .content {
+            padding: 30px;
+            margin: 30px;
+            border: 2px solid black;
+            border-radius: 50px;
+            font-size: 30px;
+            text-align: center;
+        }
+
+        .logo {
+            position: fixed;
+            bottom: 2px;
+            right: 2px;
+        }
+
+        .more {
+            border: 2px solid black;
+            height: 800px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/">About</a></li>
+                <li><a href="/">Services</a></li>
+                <li><a href="/">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="box box1"></div>
+        <div class="box box2"></div>
+    </div>
+    <div class="content">
+        Welcome to this Sigma Web Development Course
+    </div>
+    <div class="more"></div>
+    <div class="logo">
+        <svg height="100" width="100">
+            <circle cx="50" cy="50" r="35" stroke="none" stroke-width="3" fill="red" />
+        </svg>
+    </div>
+</body>
+
+</html>

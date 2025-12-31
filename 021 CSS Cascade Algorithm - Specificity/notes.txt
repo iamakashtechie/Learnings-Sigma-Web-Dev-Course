@@ -1,0 +1,22 @@
+Cascade Algorithm
+
+    1. Position and order of appearance : the order in which your CSS rules appear
+    2. Specificity : an algorithm that determines which CSS selector has the strongest match
+    3. Origin : the order in which CSS appears and where it comes from, whether that is a browser style, CSS from a browser extension, or your authored CSS.
+    4. Improtance : some CSS rules are weighted more heavily than others, especially with the !important rule type
+
+
+Position : 
+    which will be used at the last will be final.
+
+
+Specificity : 
+    order of Specificity ---> Inline style > ID selector > Class or Attribute selector > Element selector > Universal selector
+
+    *Specificity Calculation : 
+        - Universal selector  : 0
+        - Element selectors & pseudo elements : 1
+        - Class or Attribute selectors, pseudo-classes : 10
+        - ID selectors : 100
+        - Inline styles : 1000
+

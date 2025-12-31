@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flexbox</title>
+    <style>
+        body {
+            margin: 10px;
+            padding: 10px;
+            border: 2px solid rgb(255, 0, 102);
+        }
+
+        .box {
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            background-color: blueviolet;
+            border: 2px solid white;
+            /* ⭐⭐⭐ */
+        }
+
+        .container {
+            height: 60vh;
+            background-color: rgb(218, 185, 248);
+            /* ⭐⭐⭐ */
+            display: flex;
+            /* default flex direction is row */
+            /* row-reverse & column reverse can also be used */
+            /* flex-direction: column; */
+
+            align-items: center;
+            /* Vertically center or along CROSS AXIS */
+
+            justify-content: center;
+            /* Horizontally center or along MAIN AXIS */
+            /* ⭐⭐⭐ */
+            flex-wrap: wrap;
+            /* wrap, nowrap or wrap-reverse*/
+            /* align-content: flex-start; */
+            /* along CROSS AXIS */
+            /* there is no justify-items  in flexbox; */
+
+            /* flex-flow: row wrap; */
+            /* Combination of both flex-direction and flex-wrap */
+            /* ⭐⭐⭐ */
+            /* gap: 30px; 
+            row-gap: 40px;
+            column-gap: 10px; */
+            /* gap: 40px 10px; */
+        }
+
+        .video {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 5px;
+            padding: 5px;
+            border: 2px solid blue;
+        }
+        .video video {
+            width: 100%;
+            height: auto;
+            border: 2px solid yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="container">
+            <div class="box">0</div>
+            <div class="box">1</div>
+            <div class="box">2</div>
+            <div class="box">3</div>
+            <div class="box">4</div>
+            <div class="box">5</div>
+            <div class="box">6</div>
+            <div class="box">7</div>
+            <div class="box">8</div>
+            <div class="box">9</div>
+        </div>
+        <a href="/038 CSS Flexbox master class/index.html">
+            <h3>Also go through this page</h3>
+        </a>
+        <div class="video">
+            <video src="CSS flexbox.mp4" controls mute></video>
+        </div>
+    </main>
+</body>
+
+</html>

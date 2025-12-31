@@ -1,0 +1,5 @@
+npm i -D tailwindcss
+installed as ddv dependency
+
+npx tailwindcss init
+generates tailwind.config.js

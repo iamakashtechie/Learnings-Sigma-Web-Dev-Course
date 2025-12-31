@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styling Lists using CSS</title>
+    <style>
+        nav ul li {
+            /* list-style: devanagari; */
+            list-style-type: "🙉";
+            /*Two diffetent methods*/
+            background-color: yellow;
+            /*So, we can see that marker isn't yellow. Which means that ::marker isn't the part of list-item*/
+            /* To include the ::marker inside we have to use: */
+            list-style-position: inside;
+            /* border: 2px solid black; */
+            /* list-style: disc inside url("https://user-images.githubusercontent.com/14011726/94132137-7d4fc100-fe7c-11ea-8512-69f90cb65e48.gif"); */
+            /* list-style-image: url("https://user-images.githubusercontent.com/14011726/94132137-7d4fc100-fe7c-11ea-8512-69f90cb65e48.gif"); */
+            list-style: none;
+            padding: 10px;
+        }
+        nav ul {
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <!-- ⭐Uses: Designing Navigation bar lists -->
+    <!-- Display value of list is "display: list-item;" -->
+    <!-- each <li> has:
+        ::marker
+        "Content" 
+    You can view it using Chrome Inspect -->
+    <nav>
+        <ul>
+            <li>Home</li>
+            <li>About</li>
+            <li>Contact</li>
+        </ul>
+    </nav>
+</body>
+</html>

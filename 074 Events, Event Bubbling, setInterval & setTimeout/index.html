@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">Hey I am a box</div>
+    </div>
+    <button id="btn">Change Content</button>
+    <script>
+        let button = document.getElementById("btn")
+        // List of all mouse events 
+        // https://developer.mozilla.org/en-US/docs/Web/API/Element#mouse_events
+
+
+        button.addEventListener("dblclick", () => {
+            document.querySelector(".box").innerHTML = "<b>Yayy you were clicked</b> Enjoy your click!"
+        })
+
+        button.addEventListener("contextmenu", () => {
+            alert("Dont hack us by Right click Please")
+        })
+
+        document.addEventListener("keydown", (e) => {
+            console.log(e, e.key, e.keyCode)
+        })
+    </script>
+</body>
+
+</html>

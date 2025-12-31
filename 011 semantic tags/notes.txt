@@ -1,0 +1,17 @@
+used to make a proper structure that is recognised by browser (like Read aloud feature - it reads Main tag of a webpage)
+
+⭐ It'll not provide structure, structure will be done through styling/CSS
+    semantic tags just provide name of what should be for what purpose
+
+for better SEO (rank better in seardh results)
+
+Semantic Tags
+    header
+    nav
+    article
+    section
+    aside
+    footer
+    figure and figcaption
+    main
+    time

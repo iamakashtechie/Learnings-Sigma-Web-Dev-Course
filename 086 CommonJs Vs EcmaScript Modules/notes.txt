@@ -1,0 +1,13 @@
+We can initialize the project using "npm init -y", this will make the package.json with default configuration
+
+We can make modules in node.js using ECMAScript ES6 and CommonJS
+
+⭐⭐⭐⭐⭐ nodemon is a package that refreshes the server each time there is some changes in the project code
+so that we don't have to stop and start the server again and again
+we can use it by typing "nodemon main.js" in the terminal
+
+We will install it by using "npm install --global nodemon"
+
+⭐⭐⭐⭐⭐ if we want to use any specific version of npm we can do it using "node package manager"
+"nvm use 14" & "nvm install 16"
+

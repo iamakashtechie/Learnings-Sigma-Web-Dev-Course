@@ -1,0 +1,145 @@
+* {
+  font-family: sans-serif;
+}
+
+.logo img {
+  width: 164px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-family: "Segoe UI";
+}
+
+.right ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 34px;
+}
+
+.right ul li {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.right ul li span {
+  padding: 0 5px;
+}
+
+.first {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* background-color: blueviolet; */
+  gap: 23px;
+  margin: 80px;
+  /* font-family: sans-serif; */
+}
+
+.first span {
+  font-size: 40px;
+}
+
+.first span img {
+  width: 82px;
+  margin: 0 23px;
+}
+
+.first p {
+  font-size: 19px;
+  width: 44vw;
+  text-align: center;
+}
+
+.first .btn {
+  background-color: #00b6d1;
+  color: white;
+  padding: 14px 16px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.second {
+  margin: 80px;
+  /* display: flex;
+  flex-direction: column; */
+  max-width: 65vw;
+  margin: auto;
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* background-color: aquamarine; */
+}
+
+.download {
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.download img {
+    padding: 0 12px;
+}
+
+.second .download .small {
+  font-size: 14px;
+}
+
+.item {
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  /* for better use text-align */
+  text-align: center;
+  padding: 23px;
+}
+
+.item .lang {
+  font-weight: 700;
+  font-size: 16px;
+  padding-bottom: 43px;
+}
+
+.btn-blue {
+  background-color: #00b6d1;
+  color: white;
+  padding: 10px 6px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.btn-green {
+  background-color: #5fb55e;
+  color: white;
+  padding: 10px 6px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+}
+
+@media screen and (max-width: 900px) {
+    .grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+}

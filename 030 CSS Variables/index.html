@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variables</title>
+    <style>
+        :root {     
+            /* Global Variable */
+            --color: rgb(255, 43, 146);
+            --seccolor: rgb(255, 131, 191);
+            --defpad: 10px;
+            --defop: 0.6;
+        }
+        * {
+            margin: 0;
+            padding: 10px;
+        }
+
+        .nav {
+            background-color: var(--color);
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .nav>ul {
+            list-style: none;
+            display: flex;
+            justify-content: end;
+        }
+
+        .nav ul li {
+            padding: var(--defpad);
+        }
+
+        ul li:first-child {
+            /* Local Variable */
+            --color: rgb(255, 255, 255);
+            opacity: var(--defop);
+            background-color: var(--color);
+        }
+
+        .container {
+            background-color: var(--seccolor, yellow);
+            /* Fallback value --- if that variable not found */
+            /* It's like a backup of that variable */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav">
+        <ul>
+            <li>Home</li>
+            <li>About</li>
+            <li>Contact</li>
+        </ul>
+    </div>
+    <div class="container">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi tenetur sint repellendus iure, tempora repellat earum distinctio architecto odio debitis eos cupiditate praesentium suscipit officia minus doloremque voluptas, doloribus sed. Sint iste totam assumenda minus, quam fugit, est sapiente ipsa et libero voluptas eligendi amet nihil nesciunt porro maiores repudiandae voluptatem inventore incidunt officiis. Quisquam quis sit modi accusamus blanditiis impedit ea, deleniti fuga illo consequuntur sequi dolores est ratione quibusdam neque atque error qui a delectus accusantium exercitationem explicabo tempora. Quasi aspernatur nemo explicabo voluptas aliquam voluptates delectus.
+    </div>
+    <div class="container">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi tenetur sint repellendus iure, tempora repellat earum distinctio architecto odio debitis eos cupiditate praesentium suscipit officia minus doloremque voluptas, doloribus sed. Sint iste totam assumenda minus, quam fugit, est sapiente ipsa et libero voluptas eligendi amet nihil nesciunt porro maiores repudiandae voluptatem inventore incidunt officiis. Quisquam quis sit modi accusamus blanditiis impedit ea, deleniti fuga illo consequuntur sequi dolores est ratione quibusdam neque atque error qui a delectus accusantium exercitationem explicabo tempora. Quasi aspernatur nemo explicabo voluptas aliquam voluptates delectus.
+    </div>
+    <div class="container">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi tenetur sint repellendus iure, tempora repellat earum distinctio architecto odio debitis eos cupiditate praesentium suscipit officia minus doloremque voluptas, doloribus sed. Sint iste totam assumenda minus, quam fugit, est sapiente ipsa et libero voluptas eligendi amet nihil nesciunt porro maiores repudiandae voluptatem inventore incidunt officiis. Quisquam quis sit modi accusamus blanditiis impedit ea, deleniti fuga illo consequuntur sequi dolores est ratione quibusdam neque atque error qui a delectus accusantium exercitationem explicabo tempora. Quasi aspernatur nemo explicabo voluptas aliquam voluptates delectus.
+    </div>
+    <div class="container">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi tenetur sint repellendus iure, tempora repellat earum distinctio architecto odio debitis eos cupiditate praesentium suscipit officia minus doloremque voluptas, doloribus sed. Sint iste totam assumenda minus, quam fugit, est sapiente ipsa et libero voluptas eligendi amet nihil nesciunt porro maiores repudiandae voluptatem inventore incidunt officiis. Quisquam quis sit modi accusamus blanditiis impedit ea, deleniti fuga illo consequuntur sequi dolores est ratione quibusdam neque atque error qui a delectus accusantium exercitationem explicabo tempora. Quasi aspernatur nemo explicabo voluptas aliquam voluptates delectus.
+    </div>
+</body>
+
+</html>

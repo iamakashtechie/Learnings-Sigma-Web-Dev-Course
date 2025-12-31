@@ -1,0 +1,32 @@
+there are many other things to discuss...
+
+pattern attr
+action attr
+method attr
+
+there are many options of input types=""
+
+HTML provides a variety of input types for use in the <input> element within forms. Here is a comprehensive list of the input types available:
+
+    text - A single-line text input field.
+    password - A single-line text input field that masks the input.
+    submit - A button that submits the form.
+    reset - A button that resets the form fields to their default values.
+    radio - A radio button, allowing a single selection among a set of options.
+    checkbox - A checkbox, allowing multiple selections among a set of options.
+    button - A general button.
+    color - An input field for selecting a color.
+    date - An input field for selecting a date.
+    datetime-local - An input field for selecting a local date and time.
+    email - An input field for entering an email address.
+    file - An input field for uploading files.
+    hidden - A hidden input field that is not displayed in the form.
+    image - A graphical submit button.
+    month - An input field for selecting a month and year.
+    number - An input field for entering a numeric value.
+    range - A control for entering a number whose exact value is not important (like a slider control).
+    search - A single-line text input field designed for search queries.
+    tel - An input field for entering a telephone number.
+    time - An input field for selecting a time.
+    url - An input field for entering a URL.
+    week - An input field for selecting a week and year.

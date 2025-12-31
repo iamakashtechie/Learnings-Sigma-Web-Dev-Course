@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Box Model</title>
+    <style>
+        *{
+            background-color: rgb(113, 255, 78);
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            background-color: rgb(245, 83, 83);
+        }
+        .box1{
+            color: white;
+            padding: 10px;
+            margin: 5px;
+            border: 2px solid black;
+            height: 200px;
+            box-sizing: border-box; /*200 == Content + border + padding*/
+            /*Overall 200px ka height bn jayega sab kuch mila ke*/
+            /* ⭐But Margin include nhi hoga as woh box ke bahar hai */
+        }
+        .box2{
+            color : rgb(0, 42, 255);
+            padding: 10px;
+            margin: 5px;
+            border: 2px solid black;
+            height: 200px;
+        }
+        
+        /* Applying my knowledge */
+        .container{
+            display: flex;
+        }
+        
+        .container > div{
+            flex: 1;
+            max-width: 50%;
+            border: 2px solid black;
+        }
+        img, video{
+            width: 100%;
+            height: auto;
+        }
+    
+    </style>
+</head>
+<body>
+    <pre>
+        <h2>⭐Note (when box-sizing: border-box not used)</h2> 
+        <p>Total Height = Height + Top padding + Bottom padding + Top border + Bottom border + Top margin + Bottom margin</p>
+        <p>Total Width = Width + Left padding + Right padding + Left border + Right border + Left margin + Right margin</p>
+    </pre>
+        <div class="box box1">I am a box</div>
+        <div class="box box2">I am another box</div>
+    
+    <!-- Applying my knowledge -->
+    <div class="container">
+        <div>
+            <img src="css-box-model.png" alt="CSS Box Model image">
+        </div>
+        <div>
+            <video src="explained.mp4" muted loop autoplay></video>
+        </div>
+    </div>
+</body>
+</html>
