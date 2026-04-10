@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sigma Web Dev Course – Learning Resources</title>
+    <style>
+      /* ── Reset & base ── */
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+      :root {
+        --bg:       #0f0f1a;
+        --surface:  #1a1a2e;
+        --card:     #16213e;
+        --border:   #2a2a4a;
+        --accent:   #7c3aed;
+        --accent2:  #06b6d4;
+        --text:     #e2e8f0;
+        --muted:    #94a3b8;
+        --badge-bg: #1e3a5f;
+        --radius:   12px;
+        --shadow:   0 4px 20px rgba(0,0,0,.4);
+      }
+
+      html { scroll-behavior: smooth; }
+
+      body {
+        font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        min-height: 100vh;
+      }
+
+      /* ── Header ── */
+      header {
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+        border-bottom: 1px solid var(--border);
+        padding: 2.5rem 1.5rem 2rem;
+        text-align: center;
+      }
+
+      header h1 {
+        font-size: clamp(1.6rem, 4vw, 2.6rem);
+        font-weight: 800;
+        background: linear-gradient(90deg, #a78bfa, #38bdf8);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: .5rem;
+      }
+
+      header p {
+        color: var(--muted);
+        font-size: .95rem;
+        margin-bottom: 1.5rem;
+      }
+
+      /* ── Search bar ── */
+      .search-wrap {
+        display: flex;
+        justify-content: center;
+        gap: .75rem;
+        flex-wrap: wrap;
+      }
+
+      #search {
+        width: min(420px, 100%);
+        padding: .65rem 1rem;
+        border-radius: 8px;
+        border: 1px solid var(--border);
+        background: var(--surface);
+        color: var(--text);
+        font-size: 1rem;
+        outline: none;
+        transition: border-color .2s;
+      }
+
+      #search:focus { border-color: var(--accent); }
+
+      #search::placeholder { color: var(--muted); }
+
+      /* ── Stats bar ── */
+      .stats {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+        padding: 1rem 1.5rem;
+        border-bottom: 1px solid var(--border);
+        background: var(--surface);
+        font-size: .85rem;
+        color: var(--muted);
+      }
+
+      .stats span strong { color: var(--text); }
+
+      /* ── Filter tabs ── */
+      .filter-bar {
+        display: flex;
+        gap: .5rem;
+        flex-wrap: wrap;
+        padding: 1rem 1.5rem;
+        border-bottom: 1px solid var(--border);
+        background: var(--surface);
+        justify-content: center;
+      }
+
+      .filter-btn {
+        padding: .35rem .9rem;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: transparent;
+        color: var(--muted);
+        font-size: .82rem;
+        cursor: pointer;
+        transition: all .2s;
+        white-space: nowrap;
+      }
+
+      .filter-btn:hover,
+      .filter-btn.active {
+        background: var(--accent);
+        border-color: var(--accent);
+        color: #fff;
+      }
+
+      /* ── Main content ── */
+      main {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 2rem 1.5rem;
+      }
+
+      /* ── Category section ── */
+      .category {
+        margin-bottom: 2.5rem;
+      }
+
+      .category-header {
+        display: flex;
+        align-items: center;
+        gap: .75rem;
+        margin-bottom: 1rem;
+      }
+
+      .category-icon {
+        font-size: 1.5rem;
+      }
+
+      .category-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--text);
+      }
+
+      .category-count {
+        margin-left: auto;
+        background: var(--badge-bg);
+        color: var(--muted);
+        font-size: .75rem;
+        padding: .2rem .6rem;
+        border-radius: 999px;
+      }
+
+      /* ── Grid ── */
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 1rem;
+      }
+
+      /* ── Card ── */
+      .card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 1.1rem 1.25rem;
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+        transition: transform .2s, border-color .2s, box-shadow .2s;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .card::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: var(--radius);
+        background: linear-gradient(135deg, var(--accent) 0%, transparent 60%);
+        opacity: 0;
+        transition: opacity .3s;
+        pointer-events: none;
+      }
+
+      .card:hover {
+        transform: translateY(-3px);
+        border-color: var(--accent);
+        box-shadow: var(--shadow);
+      }
+
+      .card:hover::before { opacity: .06; }
+
+      .card-num {
+        font-size: .72rem;
+        color: var(--accent2);
+        font-weight: 600;
+        letter-spacing: .04em;
+        text-transform: uppercase;
+      }
+
+      .card-title {
+        font-size: .95rem;
+        font-weight: 600;
+        color: var(--text);
+        line-height: 1.35;
+      }
+
+      .card-actions {
+        margin-top: auto;
+        padding-top: .4rem;
+        display: flex;
+        gap: .5rem;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: .35rem;
+        padding: .3rem .75rem;
+        border-radius: 6px;
+        font-size: .78rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: filter .2s, opacity .2s;
+        border: none;
+        cursor: pointer;
+      }
+
+      .btn:hover { filter: brightness(1.15); }
+
+      .btn-primary {
+        background: linear-gradient(90deg, var(--accent), #9333ea);
+        color: #fff;
+      }
+
+      .btn-secondary {
+        background: var(--badge-bg);
+        color: var(--muted);
+        border: 1px solid var(--border);
+      }
+
+      /* ── No results ── */
+      #no-results {
+        display: none;
+        text-align: center;
+        color: var(--muted);
+        padding: 3rem 1rem;
+        font-size: 1.1rem;
+      }
+
+      /* ── Footer ── */
+      footer {
+        text-align: center;
+        color: var(--muted);
+        font-size: .8rem;
+        padding: 2rem 1rem;
+        border-top: 1px solid var(--border);
+      }
+
+      footer a { color: var(--accent2); text-decoration: none; }
+      footer a:hover { text-decoration: underline; }
+
+      /* ── Hidden ── */
+      .hidden { display: none !important; }
+    </style>
+  </head>
+  <body>
+
+    <header>
+      <h1>🚀 Sigma Web Dev Course</h1>
+      <p>Browse all learning resources — HTML · CSS · JavaScript · Backend · Tailwind · React</p>
+      <div class="search-wrap">
+        <input id="search" type="search" placeholder="Search topics, exercises, projects…" autocomplete="off" />
+      </div>
+    </header>
+
+    <div class="stats">
+      <span><strong id="stat-total">0</strong> modules</span>
+      <span><strong id="stat-preview">0</strong> with live preview</span>
+      <span><strong id="stat-cats">0</strong> categories</span>
+    </div>
+
+    <div class="filter-bar" id="filter-bar">
+      <button class="filter-btn active" data-cat="all">All</button>
+    </div>
+
+    <main id="main"></main>
+    <p id="no-results">No resources match your search.</p>
+
+    <footer>
+      Built while learning the
+      <a href="https://github.com/iamakashtechie/Learnings-Sigma-Web-Dev-Course" target="_blank">
+        Sigma Web Dev Course
+      </a>
+      &nbsp;•&nbsp; Open a folder's <code>index.html</code> to preview it in your browser.
+    </footer>
+
+    <script>
+      // ── Data ───────────────────────────────────────────────────────────────
+      const categories = [
+        {
+          id: "html",
+          label: "HTML Basics",
+          icon: "🌐",
+          resources: [
+            { num: "001", title: "Video Controls",                          dir: "001 video - controls",                                  file: "video-controls.html" },
+            { num: "002", title: "First HTML, CSS & JS",                    dir: "002 first html css js" },
+            { num: "003", title: "Meta & Description",                       dir: "003 meta - description" },
+            { num: "004", title: "Anchor Tag & href",                        dir: "004 anchor tag - href" },
+            { num: "005", title: "Tables & Lists",                           dir: "005 tables lists" },
+            { num: "006", title: "SEO & Core Web Vitals",                    dir: "006 SEO CoreWebVitals" },
+            { num: "007", title: "Forms & Inputs",                           dir: "007 forms inputs" },
+            { num: "008", title: "Inline vs Block Elements",                 dir: "008 inline block elements" },
+            { num: "009", title: "IDs & Classes",                            dir: "009 ID Classes" },
+            { num: "010", title: "Video, Audio & Media",                     dir: "010 Video Audio Media" },
+            { num: "011", title: "Semantic Tags",                             dir: "011 semantic tags" },
+            { num: "013", title: "Entities, Quote, Code & Obsolete Tags",   dir: "013 Entities quote code tag obsolete tags" },
+          ],
+        },
+        {
+          id: "css",
+          label: "CSS",
+          icon: "🎨",
+          resources: [
+            { num: "014", title: "Intro to CSS",                             dir: "014 Intro to CSS" },
+            { num: "015", title: "Inline, Internal & External CSS",          dir: "015 Inline Internal External CSS" },
+            { num: "017", title: "CSS Selectors",                            dir: "017 CSS selectors" },
+            { num: "018", title: "CSS Box Model",                            dir: "018 CSS Box Model" },
+            { num: "019", title: "CSS Fonts & Colors",                       dir: "019 CSS Fonts Colors" },
+            { num: "020", title: "Exercise 2",                               dir: "020 Exercise 2",                        exercise: true },
+            { num: "021", title: "CSS Cascade & Specificity",                dir: "021 CSS Cascade Algorithm - Specificity" },
+            { num: "022", title: "CSS Sizing Units",                         dir: "022 CSS sizing units" },
+            { num: "023", title: "CSS Display Property",                     dir: "023 CSS Display property" },
+            { num: "024", title: "CSS Shadows & Outlines",                   dir: "024 CSS Shadows Outlines" },
+            { num: "025", title: "CSS Styling Lists",                        dir: "025 CSS Styling Lists" },
+            { num: "026", title: "CSS Overflow",                             dir: "026 CSS Overflow property" },
+            { num: "028", title: "CSS Position",                             dir: "028 CSS Position property" },
+            { num: "029", title: "Exercise 3",                               dir: "029 Exercise 3",                        exercise: true },
+            { num: "030", title: "CSS Variables",                            dir: "030 CSS Variables" },
+            { num: "031", title: "CSS Media Queries",                        dir: "031 CSS Media queries" },
+            { num: "033", title: "Exercise 4 – Multicolor Nav",              dir: "033 Exercise 4 Multicolor nav website", exercise: true },
+            { num: "034", title: "CSS Float & Clear",                        dir: "034 CSS Float & Clear" },
+            { num: "035", title: "More on CSS Selectors",                    dir: "035 More on CSS selectors" },
+            { num: "037", title: "Exercise 5 – Design This Layout",          dir: "037 Exercise 5 Design this layout",     exercise: true },
+            { num: "038", title: "CSS Flexbox Master Class",                 dir: "038 CSS Flexbox master class" },
+            { num: "039", title: "CSS Grid",                                 dir: "039 CSS Grid" },
+            { num: "041", title: "Exercise 6 – Navbar with Flexbox",         dir: "041 Exercise 6 Navbar design using flexbox", exercise: true },
+            { num: "042", title: "CSS Transforms",                           dir: "042 CSS Transforms" },
+            { num: "044", title: "Exercise 7 – Design the Grid",             dir: "044 Exercise 7 Design the grid",        exercise: true },
+            { num: "045", title: "CSS Transition Property",                  dir: "045 CSS Transition Property" },
+            { num: "046", title: "CSS Animation",                            dir: "046 CSS Animation" },
+            { num: "048", title: "Exercise 8 – Ball Bounce Animation",       dir: "048 Excersise 8 Ball Bounce Animation", exercise: true },
+            { num: "049", title: "CSS Object-Fit & Position",                dir: "049 CSS Object Fit and Position" },
+            { num: "050", title: "CSS Filters",                              dir: "050 CSS Filters" },
+          ],
+        },
+        {
+          id: "projects-css",
+          label: "CSS Projects",
+          icon: "🏗️",
+          resources: [
+            { num: "053", title: "Netflix Clone",                            dir: "053 Netflix Clone" },
+          ],
+        },
+        {
+          id: "js",
+          label: "JavaScript",
+          icon: "⚡",
+          resources: [
+            { num: "054", title: "JS Intro",                                 dir: "054 JS intro" },
+            { num: "055", title: "Variables, Data Types & Objects",          dir: "055 JS Variables, Data Types & Objects" },
+            { num: "056", title: "JS if / else",                             dir: "056 JS if else" },
+            { num: "057", title: "JS Loops",                                 dir: "057 JS loops" },
+            { num: "058", title: "JS Functions",                             dir: "058 JS Functions" },
+            { num: "059", title: "Exercise 9 – Faulty Calculator",           dir: "059 Exercise 9 Faulty Calculator",      exercise: true },
+            { num: "060", title: "JS Strings",                               dir: "060 JS Strings" },
+            { num: "062", title: "Exercise 10 – Business Name Generator",    dir: "062 Exercise 10 Business Name Generator", exercise: true },
+            { num: "063", title: "JS Arrays",                                dir: "063 JS Array" },
+            { num: "065", title: "Exercise 11 – Factorial",                  dir: "065 Exercise 11 Factorial",             exercise: true },
+            { num: "066", title: "JS DOM – Document Object Model",           dir: "066 JS Dom - Document Object Model" },
+            { num: "067", title: "DOM Children, Parent & Siblings",          dir: "067 JS DOM Children, Parent & Sibling Nodes" },
+            { num: "068", title: "DOM Selecting by IDs & Classes",           dir: "068 JS DOM Selecting by Ids, Classes, and More" },
+            { num: "070", title: "Exercise 12 – Color the Boxes",            dir: "070 Exercise 12 Color the Boxes",       exercise: true },
+            { num: "071", title: "Inserting & Removing Elements",            dir: "071 JS Inserting and Removing Elements" },
+            { num: "073", title: "Exercise 13 – Dynamic Website Builder",    dir: "073 Exercise 13 Dynamic Website Builder", exercise: true },
+            { num: "074", title: "Events, Bubbling, setInterval & setTimeout", dir: "074 Events, Event Bubbling, setInterval & setTimeout" },
+            { num: "075", title: "Callbacks & Promises",                     dir: "075 JS Callbacks & Promises" },
+            { num: "076", title: "Async / Await & Fetch API",                dir: "076 JS Async Await & Fetch API" },
+            { num: "078", title: "Exercise 14 – Hacker's Terminal",          dir: "078 Exercise 14 Hacker's Terminal",     exercise: true },
+            { num: "079", title: "try / catch – Error Handling",             dir: "079 JS try catch Error Handling" },
+            { num: "080", title: "OOP – Classes & Objects",                  dir: "080 JS OOPS Classes and Objects" },
+            { num: "082", title: "JS Advanced Concepts",                     dir: "082 JS Advance Concepts" },
+            { num: "083", title: "JS Interview Questions",                   dir: "083 JS Interview Questions" },
+          ],
+        },
+        {
+          id: "projects-js",
+          label: "JS Projects",
+          icon: "🎵",
+          resources: [
+            { num: "084", title: "Spotify Clone",                            dir: "084 Spotify Clone" },
+          ],
+        },
+        {
+          id: "backend",
+          label: "Backend & Node.js",
+          icon: "🖥️",
+          resources: [
+            { num: "085", title: "Backend, Node.js & npm",                  dir: "085 Backend, Node.js & npm" },
+            { num: "086", title: "CommonJS vs ES Modules",                   dir: "086 CommonJs Vs EcmaScript Modules" },
+            { num: "087", title: "Working with fs & path Modules",           dir: "087 Working with Files fs and path Modules" },
+            { num: "088", title: "Introduction to Express.js",               dir: "088 Introduction to Express JS" },
+            { num: "089", title: "Requests, Responses & Routers",            dir: "089 Response Request and Routers Express JS" },
+            { num: "090", title: "Express Middlewares",                      dir: "090 Express Middlewares" },
+            { num: "091", title: "Exercise 15 – Organise Files & Folders",   dir: "091 Exercise 15 Clear the Clutter-Organise files folders", exercise: true },
+            { num: "092", title: "EJS Template Engine in Express",           dir: "092 ejs Template Engine in Express" },
+            { num: "095", title: "CRUD Operations in MongoDB",               dir: "095 CRUD Operations in MongoDB" },
+            { num: "096", title: "Mongoose with Express",                    dir: "096 Mongoose with Express" },
+            { num: "097", title: "Exercise 16 – Dummy Data Generator",       dir: "097 Exercise 16 Dummy Data Generator",  exercise: true },
+          ],
+        },
+        {
+          id: "tailwind",
+          label: "Tailwind CSS",
+          icon: "💨",
+          resources: [
+            { num: "098", title: "Tailwind CSS Intro",                       dir: "098 Tailwind CSS" },
+            { num: "100", title: "Exercise 17 – Layout with Tailwind",       dir: "100 Exercise 17 Design the Layout with Tailwind CSS", exercise: true },
+            { num: "101", title: "Twitter Clone using Tailwind",             dir: "101 Twitter Clone using Tailwind CSS" },
+          ],
+        },
+        {
+          id: "react",
+          label: "React",
+          icon: "⚛️",
+          resources: [
+            { num: "105", title: "Intro to ReactJS",                         dir: "105 Intro to ReactJS" },
+            { num: "106", title: "Components, Props & JSX",                  dir: "106 Components, Props and JSX in React" },
+            { num: "107", title: "Hooks & useState",                         dir: "107 Hooks & useState in React" },
+            { num: "108", title: "useEffect Hook",                           dir: "108 useEffect hook in React" },
+            { num: "109", title: "useRef Hook",                              dir: "109 useRef hook in React" },
+            { num: "110", title: "Conditional Rendering & Lists",            dir: "110 Conditional Rendering And Rendering Lists in React" },
+            { num: "111", title: "Exercise 18 – Display Cards from API",     dir: "111 Exercise 18 Display the Card from API in React", exercise: true },
+            { num: "112", title: "Handling Events in React",                 dir: "112 Handling Events in React" },
+            { num: "114", title: "TodoList App (React + Tailwind)",          dir: "114 TodoList App using React and Tailwind" },
+            { num: "115", title: "React Routing",                            dir: "115 React Routing" },
+            { num: "116", title: "useContext Hook",                          dir: "116 useContext hook in React" },
+            { num: "117", title: "useMemo Hook",                             dir: "117 useMemo hook in React" },
+            { num: "118", title: "useCallback Hook",                         dir: "118 useCallback hook in React" },
+            { num: "119", title: "Form Handling + Express in React",         dir: "119 form Handling and connecting Express in React" },
+            { num: "120", title: "Complete Redux",                           dir: "120 Complete Redux" },
+            { num: "130.1", title: "Password Manager (React + Local Storage)", dir: "130.1 Password Manager using React, Tailwind, Local Storage" },
+            { num: "130.2", title: "Password Manager (React + MongoDB)",     dir: "130.2 Password Manager using React, Tailwind, MongoDB and Express" },
+          ],
+        },
+      ];
+
+      // Folders that have an index.html
+      const hasIndex = new Set([
+        "002 first html css js","003 meta - description","004 anchor tag - href",
+        "005 tables lists","008 inline block elements","009 ID Classes",
+        "010 Video Audio Media","011 semantic tags",
+        "013 Entities quote code tag obsolete tags","014 Intro to CSS",
+        "015 Inline Internal External CSS","017 CSS selectors","018 CSS Box Model",
+        "020 Exercise 2","021 CSS Cascade Algorithm - Specificity",
+        "022 CSS sizing units","023 CSS Display property","024 CSS Shadows Outlines",
+        "025 CSS Styling Lists","026 CSS Overflow property","028 CSS Position property",
+        "029 Exercise 3","030 CSS Variables","031 CSS Media queries",
+        "033 Exercise 4 Multicolor nav website","034 CSS Float & Clear",
+        "035 More on CSS selectors","037 Exercise 5 Design this layout",
+        "038 CSS Flexbox master class","041 Exercise 6 Navbar design using flexbox",
+        "042 CSS Transforms","044 Exercise 7 Design the grid",
+        "045 CSS Transition Property","046 CSS Animation",
+        "048 Excersise 8 Ball Bounce Animation","049 CSS Object Fit and Position",
+        "050 CSS Filters","054 JS intro","055 JS Variables, Data Types & Objects",
+        "059 Exercise 9 Faulty Calculator","065 Exercise 11 Factorial",
+        "066 JS Dom - Document Object Model",
+        "067 JS DOM Children, Parent & Sibling Nodes",
+        "068 JS DOM Selecting by Ids, Classes, and More",
+        "070 Exercise 12 Color the Boxes","071 JS Inserting and Removing Elements",
+        "073 Exercise 13 Dynamic Website Builder",
+        "074 Events, Event Bubbling, setInterval & setTimeout",
+        "075 JS Callbacks & Promises","076 JS Async Await & Fetch API",
+        "078 Exercise 14 Hacker's Terminal","079 JS try catch Error Handling",
+        "080 JS OOPS Classes and Objects","082 JS Advance Concepts",
+        "086 CommonJs Vs EcmaScript Modules","098 Tailwind CSS",
+        "100 Exercise 17 Design the Layout with Tailwind CSS",
+        "101 Twitter Clone using Tailwind CSS","105 Intro to ReactJS",
+        "108 useEffect hook in React","109 useRef hook in React",
+        "110 Conditional Rendering And Rendering Lists in React",
+        "111 Exercise 18 Display the Card from API in React",
+        "112 Handling Events in React","114 TodoList App using React and Tailwind",
+        "115 React Routing","116 useContext hook in React","117 useMemo hook in React",
+        "118 useCallback hook in React",
+        "119 form Handling and connecting Express in React","120 Complete Redux",
+        "130.1 Password Manager using React, Tailwind, Local Storage",
+        "130.2 Password Manager using React, Tailwind, MongoDB and Express",
+      ]);
+
+      // ── Build UI ────────────────────────────────────────────────────────────
+      const main = document.getElementById("main");
+      const filterBar = document.getElementById("filter-bar");
+      const noResults = document.getElementById("no-results");
+
+      let totalModules = 0;
+      let totalPreviews = 0;
+
+      // Category filter buttons
+      categories.forEach(cat => {
+        const btn = document.createElement("button");
+        btn.className = "filter-btn";
+        btn.dataset.cat = cat.id;
+        btn.textContent = `${cat.icon} ${cat.label}`;
+        filterBar.appendChild(btn);
+      });
+
+      // Render sections
+      categories.forEach(cat => {
+        const section = document.createElement("section");
+        section.className = "category";
+        section.dataset.cat = cat.id;
+
+        const header = document.createElement("div");
+        header.className = "category-header";
+        header.innerHTML = `
+          <span class="category-icon">${cat.icon}</span>
+          <span class="category-title">${cat.label}</span>
+          <span class="category-count">${cat.resources.length}</span>
+        `;
+
+        const grid = document.createElement("div");
+        grid.className = "grid";
+
+        cat.resources.forEach(res => {
+          totalModules++;
+          const previewFile = res.file || (hasIndex.has(res.dir) ? "index.html" : null);
+          if (previewFile) totalPreviews++;
+
+          const card = document.createElement("article");
+          card.className = "card";
+          card.dataset.title = res.title.toLowerCase();
+          card.dataset.cat = cat.id;
+
+          const href = previewFile
+            ? `./${encodeURIComponent(res.dir)}/${encodeURIComponent(previewFile)}`
+            : null;
+
+          card.innerHTML = `
+            <span class="card-num">Module ${res.num}</span>
+            <span class="card-title">${res.title}</span>
+            <div class="card-actions">
+              ${href
+                ? `<a class="btn btn-primary" href="${href}" target="_blank">▶ Open Preview</a>`
+                : `<span class="btn btn-secondary" title="No HTML preview available">📂 No Preview</span>`
+              }
+            </div>
+          `;
+
+          grid.appendChild(card);
+        });
+
+        section.appendChild(header);
+        section.appendChild(grid);
+        main.appendChild(section);
+      });
+
+      // Stats
+      document.getElementById("stat-total").textContent = totalModules;
+      document.getElementById("stat-preview").textContent = totalPreviews;
+      document.getElementById("stat-cats").textContent = categories.length;
+
+      // ── Filter ─────────────────────────────────────────────────────────────
+      let activeCat = "all";
+
+      filterBar.addEventListener("click", e => {
+        const btn = e.target.closest(".filter-btn");
+        if (!btn) return;
+        activeCat = btn.dataset.cat;
+        filterBar.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        applyFilters();
+      });
+
+      // ── Search ─────────────────────────────────────────────────────────────
+      document.getElementById("search").addEventListener("input", applyFilters);
+
+      function applyFilters() {
+        const query = document.getElementById("search").value.toLowerCase().trim();
+        let anyVisible = false;
+
+        document.querySelectorAll(".category").forEach(section => {
+          const catMatch = activeCat === "all" || section.dataset.cat === activeCat;
+          let sectionHasCard = false;
+
+          section.querySelectorAll(".card").forEach(card => {
+            const titleMatch = !query || card.dataset.title.includes(query);
+            const show = catMatch && titleMatch;
+            card.classList.toggle("hidden", !show);
+            if (show) { sectionHasCard = true; anyVisible = true; }
+          });
+
+          section.classList.toggle("hidden", !sectionHasCard);
+        });
+
+        noResults.style.display = anyVisible ? "none" : "block";
+      }
+    </script>
+  </body>
+</html>
